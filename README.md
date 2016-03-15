@@ -7,7 +7,22 @@ A abordagem EXEHDA-USM visa o fornecimento de Consciência de Situação sobre o
 
 ## Quem Somos?
 
-* Mestrando: [Ricardo Borges Almeida](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4464670A9) (Universidade Federal de Pelotas)
-* Orientador(a): [Ana Marilza Pernas](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4732420Y8) (Universidade Federal de Pelotas)
-* Coorientadores: [Adenauer Correa Yamin](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4707199E9) (Universidade Federal de Pelotas) e [Lucas Medeiros Donato](https://www.linkedin.com/in/lucasdonato?authType=NAME_SEARCH&authToken=-vKW&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A19709630%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1458004528285%2Ctas%3ALucas%20Donato) (De Montfort University)
+* Mestrando: 
+ * Ricardo Borges Almeida (Universidade Federal de Pelotas)
+   * [Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4464670A9)
+   * E-mail: rbalmeida@inf.ufpel.edu.br
+* Orientador(a): 
+ * Ana Marilza Pernas (Universidade Federal de Pelotas)
+   * [Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4732420Y8)
+* Coorientadores: 
+  * Adenauer Correa Yamin (Universidade Federal de Pelotas) 
+    * [Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4707199E9) 
+  * Lucas Medeiros Donato (De Montfort University)
+    * [LinkedIn](https://www.linkedin.com/in/lucasdonato?authType=NAME_SEARCH&authToken=-vKW&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A19709630%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1458004528285%2Ctas%3ALucas%20Donato)
+
+## Licença
+
+Este projeto, incluindo os códigos e documentações, esta licenciado sob a Licença [GPLv2](https://github.com/rborgesalmeida/exehda-usm/blob/prototipo-dissertacao/LICENSE). Softwares de terceiros foram utilizados para sua concepção, desta forma as respectivas licenças devem ser respeitadas, entre elas:
+ * Esper - [GPLv2](http://www.espertech.com/esper/license.php)
+
 
