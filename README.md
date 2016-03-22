@@ -32,7 +32,7 @@ A abordagem EXEHDA-USM visa o fornecimento de Consciência de Situação sobre o
 
 ## Licença
 
-Este projeto, incluindo os códigos e documentações, esta licenciado sob a Licença [GPLv2](https://github.com/rborgesalmeida/exehda-usm/blob/prototipo-dissertacao/LICENSE). Softwares de terceiros foram utilizados para sua concepção, desta forma as respectivas licenças devem ser respeitadas, entre elas:
+Este projeto, incluindo os códigos e documentações, está licenciado sob a Licença [GPLv2](https://github.com/rborgesalmeida/exehda-usm/blob/prototipo-dissertacao/LICENSE). Softwares de terceiros foram utilizados para sua concepção, desta forma as respectivas licenças devem ser respeitadas, entre elas:
  * Esper - [GPLv2](http://www.espertech.com/esper/license.php)
 
 
