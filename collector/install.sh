@@ -31,16 +31,6 @@ if [ "$RETORNO" -ne 0 ]; then
 elif [ "$RETORNO" -eq 0 ]; then
     echo "Instalação concluída."
 fi
-echo "Instalando pympler..."
-sudo easy_install pympler
-
-
-RETORNO="$?"
-if [ "$RETORNO" -ne 0 ]; then
-    echo "ERRO: Não foi possível realizar a instalação do pympler. Por favor, realize a instalação manualmente."
-elif [ "$RETORNO" -eq 0 ]; then
-    echo "Instalação concluída."
-fi
 
 echo "Instalando psutil..."
 sudo easy_install psutil
@@ -68,16 +58,6 @@ sudo easy_install geoip2
 RETORNO="$?"
 if [ "$RETORNO" -ne 0 ]; then
     echo "ERRO: Não foi possível realizar a instação do geoip2. Por favor, realize a instalação manualmente."
-elif [ "$RETORNO" -eq 0 ]; then
-    echo "Instalação concluída."
-fi
-
-echo "Instalando pycrypto..."
-sudo easy_install pycrypto
-
-RETORNO="$?"
-if [ "$RETORNO" -ne 0 ]; then
-    echo "ERRO: Não foi possível realizar a instalação do pycrypto. Por favor, realize a instalação manualmente."
 elif [ "$RETORNO" -eq 0 ]; then
     echo "Instalação concluída."
 fi
