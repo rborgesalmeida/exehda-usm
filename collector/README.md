@@ -45,19 +45,21 @@ Em caso de erros no script de instalação, considerar a instalação manual dos
 
 1. Instalar o python e requisitos para as demais bibliotecas:
 
-	`user@hostname:~$: apt-get install curl build-essentials libcurl4-gnutls-dev python python-dev zlib1g-dev gcc make python-setuptools`
+	`user@hostname:~$: apt-get install curl build-essentials libcurl4-gnutls-dev python python-dev zlib1g-dev gcc make python-setuptools openjdk-7-jdk`
 	
 1. Instalar as bibliotecas manualmente: 
 
-	`user@hostname:~$: easy_install netifaces ipy psutil httpagentparser geoip2`
+	`user@hostname:~$: easy_install netifaces ipy psutil httpagentparser geoip2 pyparsing`
 	
 1. Instalar o geoipupdate:
 
 	`user@hostname:~$: wget https://github.com/maxmind/geoipupdate/releases/download/v2.2.1/geoipupdate-2.2.1.tar.gz && tar -zxvf geoipupdate-2.2.1.tar.gz && cd geoipupdate-2.2.1/ && sudo ./configure && sudo make && sudo make install`
 
 1. Criar arquivo de configuração para o geoipupdate:
-	
-	$ user@hostname:~$: sudo > /usr/local/etc/GeoIP.conf && sudo echo "# The following UserId and LicenseKey are required placeholders:
+
+	```
+	user@hostname:~$: sudo > /usr/local/etc/GeoIP.conf
+	user@hostname:~$: sudo echo "# The following UserId and LicenseKey are required placeholders:
 		UserId 999999
 		LicenseKey 000000000000 
 		# Include one or more of the following ProductIds:
@@ -67,7 +69,28 @@ Em caso de erros no script de instalação, considerar a instalação manual dos
 		# * 517 - GeoLite Legacy ASN
 		# * 533 - GeoLite Legacy City
 		ProductIds GeoLite2-City GeoLite2-Country 506 517 533" > /usr/local/etc/GeoIP.conf
+	```
 	
+1. Criar diretório padrão de armazenamento das bases e executar a primeira atualização:	
+	 
+	`user@hostname:~$: sudo mkdir -p /usr/local/share/GeoIP && geoipupdate`
+	
+1. Configurar o agendador de tarefas:
+
+	```
+	user@hostname:~$: sudo echo "#!/bin/bash
+	geoipupdate" > /etc/cron.daily/geoipupdate
+	user@hostname:~$: sudo chmod +x /etc/cron.daily/geoipupdate
+  ```
+
+1. Configurar a variável de ambiente do java: 
+ 
+	```
+	user@hostname:~$: sudo echo 'JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"' >> /etc/environment
+	user@hostname:~$: JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
+  user@hostname:~$: export JAVA_HOME
+	```
+
 1. Copiar os os arquivos do EXEHDA-USM Collector para o diretório desejado:
  	`root@hostname:~#: mkdir -p /etc/exehda-usm/collector && cp -a /home/user/Downloads/exehda-usm/collector/ /etc/exehda-usm/collector/`
 
