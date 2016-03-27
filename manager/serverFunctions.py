@@ -13,10 +13,6 @@ from readConfFile import ReadConfFile
 from databaseConnection import DatabaseConnection
 from eventDatabaseConnection import EventDatabaseConnection
 
-# Assinatura
-from Crypto.Hash import MD5
-from Crypto import Random
-
 import json
 import ast
 

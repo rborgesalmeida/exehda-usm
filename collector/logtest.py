@@ -54,7 +54,4 @@ ossec = beginning + dblQuotedString.setResultsName("timestamp").setParseAction(r
 
 log = 'AV - Alert - "1445109839" --> RID: "11306"; RL: "10"; RG: "syslog,pure-ftpd,authentication_failures,"; RC: "FTP brute force (multiple failed logins)."; USER: "None"; SRCIP: "200.17.160.80"; HOSTNAME: "(webserver2) 192.168.0.2->/var/log/messages"; LOCATION: "(webserver2) 192.168.0.2->/var/log/messages"; EVENT: "[INIT]Oct 17 16:11:27 webserver2 pure-ftpd: (?@192.168.0.10) [WARNING] Authentication failed for user [webmaster][END]";' 
 
-
 print ossec.parseString(log).asDict()
-
-
