@@ -25,9 +25,13 @@ O CPNM Agent possui alguns pré-requisitos para seu funcionamento que podem ser 
 Pode-se utilizar o script install.sh. Ele irá baixar as bibliotecas python citadas acima e a base de dados para geolocalização. Realizará a adição no agendador de tarefas de uma rotina para atualização desta base de dados. Observação: este script de instalação está homologado apenas para o Debian Jessie (8).
 
  1. Instalar o git e criar um clone deste repositório:	
- 	```user@hostname:~/Downloads/$: sudo apt-get install git && git clone https://github.com/rborgesalmeida/exehda-usm.git```
+ 
+ 	`user@hostname:~/Downloads/$: sudo apt-get install git && git clone https://github.com/rborgesalmeida/exehda-usm.git`
+
  1. Acessar o diretório onde estão os arquivos de instalação do EXEHDA-USM Collector:
+ 
  	`user@hostname:~$: cd /home/user/Downloads/exehda-usm/collector/`
+
  1. Conceder permissão de execução ao script de instalação:
 	`user@hostname:/home/user/Downloads/exehda-usm/collector/$: chmod +x install.sh`
  1. Executar a instalação: 
