@@ -1,0 +1,67 @@
+.TH GeoIP.conf 5 "25 Sep 2013"
+.UC 4
+.SH NAME
+GeoIP.conf - Configuration file for geoipupdate
+.SH SYNOPSIS
+This file allows you to configure your
+.BR geoipupdate " program to download purchased GeoIP2 and GeoIP Legacy
+databases.
+.SH DESCRIPTION
+The file consists of one setting per line. Lines starting with
+.B #
+are comments and will not be processed. All setting keywords are
+case sensitive.
+.PP
+The default configuration file is found at:
+CONF_DIR/GeoIP.conf
+.PP
+.SS Required settings:
+.TP
+.B UserId
+Your MaxMind user ID.
+.TP
+.B LicenseKey
+Your case-sensitive MaxMind license key.
+.TP
+.B ProductIds
+List of product IDs. Product IDs may consist of letters, digits, and dashes
+(e.g., "GeoIP2-City", "106").
+.PP
+.SS Optional settings:
+.PP
+.TP
+.B DatabaseDirectory
+The directory to store the database files. The default is DATADIR
+.TP
+.B Host
+The host name of the server to use. The default is
+.BR updates.maxmind.com ".
+.TP
+.B Protocol
+The protocol to use. Valid values are
+.BR https " and " http ". The default is " https ".
+.TP
+.B Proxy
+The proxy host name or IP address. You may optionally specify a
+port number, e.g.,
+.BR 127.0.0.1:8888 ". If no port number is specified, 1080 will be used.
+.TP
+.B ProxyUserPassword
+The proxy user name and password, separated by a colon. For instance,
+.BR username:password ".
+.TP
+.B SkipPeerVerification
+Skip peer verification when using
+.BR https ". Valid values are " 0 " and " 1 ". The default is " 0 ".
+.TP
+.B SkipHostnameVerification
+Skip the host name verification when using
+.BR https ". This option is either " 0 " and " 1 ". The default is " 0 ".
+.SH FILES
+.PP
+.TP
+.B CONF_DIR/GeoIP.conf
+.RB Default " geoipupdate
+configuration file.
+.SH SEE ALSO
+.BR geoipupdate "(1)
