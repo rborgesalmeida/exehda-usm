@@ -33,26 +33,41 @@ Pode-se utilizar o script install.sh. Ele irá baixar as bibliotecas python cita
  	`user@hostname:~$: cd /home/user/Downloads/exehda-usm/collector/`
 
  1. Conceder permissão de execução ao script de instalação:
+ 
 	`user@hostname:/home/user/Downloads/exehda-usm/collector/$: chmod +x install.sh`
+
  1. Executar a instalação: 
+ 
 	`user@hostname:/home/user/Downloads/exehda-usm/collector/$: ./install.sh`
 
 ## Instalação Manual
 Em caso de erros no script de instalação, considerar a instalação manual dos pré-requisitos que falharam.
 
 1. Instalar o python e requisitos para as demais bibliotecas:
+
 	`user@hostname:~$: apt-get install curl build-essentials libcurl4-gnutls-dev python python-dev zlib1g-dev gcc make python-setuptools`
+	
 1. Instalar as bibliotecas manualmente: 
+
 	`user@hostname:~$: easy_install netifaces ipy psutil httpagentparser geoip2`
+	
 1. Instalar o geoipupdate:
-	`wget https://github.com/maxmind/geoipupdate/releases/download/v2.2.1/geoipupdate-2.2.1.tar.gz
 
-tar -zxvf geoipupdate-2.2.1.tar.gz
+	`user@hostname:~$: wget https://github.com/maxmind/geoipupdate/releases/download/v2.2.1/geoipupdate-2.2.1.tar.gz && tar -zxvf geoipupdate-2.2.1.tar.gz && cd geoipupdate-2.2.1/ && sudo ./configure && sudo make && sudo make install`
 
-cd geoipupdate-2.2.1/
-sudo ./configure
-sudo make
-sudo make install`
+1. Criar arquivo de configuração para o geoipupdate:
+	
+	`user@hostname:~$: sudo > /usr/local/etc/GeoIP.conf && sudo echo "# The following UserId and LicenseKey are required placeholders: \\
+UserId 999999 \\
+LicenseKey 000000000000 \\
+# Include one or more of the following ProductIds:\\
+# * GeoLite2-City - GeoLite 2 City\\
+# * GeoLite2-Country - GeoLite2 Country\\
+# * 506 - GeoLite Legacy Country\\
+# * 517 - GeoLite Legacy ASN\\
+# * 533 - GeoLite Legacy City\\
+ProductIds GeoLite2-City GeoLite2-Country 506 517 533" > /usr/local/etc/GeoIP.conf`
+	
 1. Copiar os os arquivos do EXEHDA-USM Collector para o diretório desejado:
  	`root@hostname:~#: mkdir -p /etc/exehda-usm/collector && cp -a /home/user/Downloads/exehda-usm/collector/ /etc/exehda-usm/collector/`
 
