@@ -92,5 +92,6 @@ Em caso de erros no script de instalação, considerar a instalação manual dos
 	```
 
 1. Copiar os os arquivos do EXEHDA-USM Collector para o diretório desejado:
+
  	`root@hostname:~#: mkdir -p /etc/exehda-usm/collector && cp -a /home/user/Downloads/exehda-usm/collector/ /etc/exehda-usm/collector/`
 
