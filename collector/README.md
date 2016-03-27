@@ -24,16 +24,31 @@ O CPNM Agent possui alguns pré-requisitos para seu funcionamento que podem ser 
 ## Instalação Automática
 Pode-se utilizar o script install.sh. Ele irá baixar as bibliotecas python citadas acima e a base de dados para geolocalização. Realizará a adição no agendador de tarefas de uma rotina para atualização desta base de dados. Observação: este script de instalação está homologado apenas para o Debian Jessie (8).
 
- 1. Logar como root:
- 	`user@hostname:~$: sudo su -` ou `user@hostname:~$: su -`
+ 1. Instalar o git e criar um clone deste repositório:	
+ 	```user@hostname:~/Downloads/$: sudo apt-get install git && git clone https://github.com/rborgesalmeida/exehda-usm.git```
  1. Acessar o diretório onde estão os arquivos de instalação do EXEHDA-USM Collector:
- 	`root@hostname:~#: cd /home/user/Downloads/exehda-usm/collector/`
+ 	`user@hostname:~$: cd /home/user/Downloads/exehda-usm/collector/`
  1. Conceder permissão de execução ao script de instalação:
-	`root@hostname:/home/user/Downloads/exehda-usm/collector/#: chmod +x install.sh`
+	`user@hostname:/home/user/Downloads/exehda-usm/collector/$: chmod +x install.sh`
  1. Executar a instalação: 
-		`root@hostname:/home/user/Downloads/exehda-usm/collector/#: ./install.sh`
+	`user@hostname:/home/user/Downloads/exehda-usm/collector/$: ./install.sh`
 
 ## Instalação Manual
 Em caso de erros no script de instalação, considerar a instalação manual dos pré-requisitos que falharam.
 
+1. Instalar o python e requisitos para as demais bibliotecas:
+	`user@hostname:~$: apt-get install curl build-essentials libcurl4-gnutls-dev python python-dev zlib1g-dev gcc make python-setuptools`
+1. Instalar as bibliotecas manualmente: 
+	`user@hostname:~$: easy_install netifaces ipy psutil httpagentparser geoip2`
+1. Instalar o geoipupdate:
+	`wget https://github.com/maxmind/geoipupdate/releases/download/v2.2.1/geoipupdate-2.2.1.tar.gz
+
+tar -zxvf geoipupdate-2.2.1.tar.gz
+
+cd geoipupdate-2.2.1/
+sudo ./configure
+sudo make
+sudo make install`
+1. Copiar os os arquivos do EXEHDA-USM Collector para o diretório desejado:
+ 	`root@hostname:~#: mkdir -p /etc/exehda-usm/collector && cp -a /home/user/Downloads/exehda-usm/collector/ /etc/exehda-usm/collector/`
 
