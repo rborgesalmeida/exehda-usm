@@ -11,7 +11,7 @@ echo "Copiando os arquivos para o diretorio padrao..."
 sudo cp -a * $DIREXEHDAUSMCOLL
 
 # Executa a instalação de todas as bibliotecas necessárias para o funcionamento do EXEHDA-USM Collector #
-sudo apt-get install python-pip curl build-essentials libcurl4-gnutls-dev python2.7-dev zlib1g-dev gcc make python-setuptools
+sudo apt-get install curl build-essentials libcurl4-gnutls-dev python python-dev zlib1g-dev gcc make python-setuptools
 
 echo "Instalando netifaces..."
 sudo easy_install netifaces
