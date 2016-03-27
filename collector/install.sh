@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ###################################################################################
-# Linha para adição no cron da atualização das bases de dados de geolocalização   #
 DIREXEHDAUSMCOLL="/etc/exehda-usm/collector"                                      #
 ###################################################################################
 
