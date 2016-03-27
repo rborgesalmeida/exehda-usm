@@ -5,6 +5,7 @@ DIREXEHDAUSMCOLL="/etc/exehda-usm/collector"                                    
 ###################################################################################
 
 mkdir -p $DIREXEHDAUSMCOLL
+mkdir -p /var/log/exehda-usm/
 
 echo "Copiando os arquivos para o diretorio padrao..." 
 cp -a * $DIREXEHDAUSMCOLL
