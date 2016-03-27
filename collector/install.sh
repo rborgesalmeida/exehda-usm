@@ -1,61 +1,18 @@
 #!/bin/bash
 
-# Declaração de variáveis #
-###############################################################################################################
-# Variáveis utilizadas somente se deseja enviar a chave pública através do SCP para o servidor CPNM_Server    #
-#SERVERIP="200.132.102.195"
-#PORT="50000"
-#SERVERUSER="exehda-usm-user"
-#DIRCPNMSERVER="/etc/exehda-usm/manager"
-# Adquire o nome da máquina para nomear a chave pública enviada ao servidor       #
-HOSTNAME=$(hostname -s)                                                           #
 ###################################################################################
 # Linha para adição no cron da atualização das bases de dados de geolocalização   #
-#CRONTABGEOIP="00 01 * * * sh /etc/cpnm/cpnm-agent/geoipupdate.sh"                 #
-DIREXEHDAUSMCOLL="/etc/exehda-usm/collector"                                               #
+DIREXEHDAUSMCOLL="/etc/exehda-usm/collector"                                      #
 ###################################################################################
 
-#mkdir -p $DIRCPNMAGENT
-#cp -a src/cpnm-agent/* $DIRCPNMAGENT
+mkdir -p $DIREXEHDAUSMCOLL
 
-# Geração da chave pública e da chave privada
-#echo "Gerando a chave privada..."
-#openssl genrsa -out $DIRCPNMAGENT/privateKey.key 1024
+echo "Copiando os arquivos para o diretorio padrao..." 
+cp -a * $DIREXEHDAUSMCOLL
 
-#RETORNO="$?"
-#if [ "$RETORNO" -ne 0 ]; then
-#    echo "ERRO: Não foi possível gerar a chave privada. Realize este processo manualmente, assim como a geração da chave pública."
-#elif [ "$RETORNO" -eq 0 ]; then
-#    echo "Chave privada gerada com sucesso. Gerando a chave pública..."
-#    openssl rsa -in $DIRCPNMAGENT/privateKey.key -pubout > $DIRCPNMAGENT/publicKey.key 2>/dev/null
-#    RETORNO="$?"
-#    if [ "$RETORNO" -ne 0 ]; then
-#        echo "ERRO: Não foi possível gerar a chave pública. Realize este processo manualmente."
-#    elif [ "$RETORNO" -eq 0 ]; then
-#        echo "Chave pública gerada com sucesso."
-#    fi
-#fi
-# Envio da chave pública para o servidor
-# Pede uma confirmaça~Co do usua~Ario antes de executar
-#echo "Você deseja enviar a chave pública para o servidor utilizando o scp? [S/N]: "
-#read RESPOSTA
-#while [ "$RESPOSTA" != "S" ] && [ "$RESPOSTA" != "N" ]; do
-#        echo "Por favor, entre com uma opção válida [S/N]: "
-#        read RESPOSTA
-#done
+# Executa a instalação de todas as bibliotecas necessárias para o funcionamento do EXEHDA-USM Collector #
+apt-get install python-pip curl libcurl4-gnutls-dev python2.7-dev zlib1g-dev gcc make python-setuptools
 
-#if [ "$RESPOSTA" == "S" ]; then
-#    scp -P $PORT $DIRCPNMAGENT/publicKey.key $SERVERUSER@$SERVERIP:$DIRCPNMSERVER/pubKeyClients/$HOSTNAME.key
-#fi
-
-
-# Executa a instalação de todas as bibliotecas necessárias para o funcionamento do CPNM_Agent #
-apt-get install python-pip curl libcurl4-gnutls-dev
-apt-get install python2.7-dev
-
-apt-get install zlib1g-dev make
-# apt-get install python-pip
-# apt-get install python2.7-dev
 echo "Instalando netifaces..."
 easy_install netifaces
 
@@ -127,11 +84,6 @@ fi
 
 #################################################################################################
 
-# Baixando as bases de dados para a geolocalização #
-echo "Baixando as bases de dados para geolocalização..."
-#sh $DIREXEHDAUSMCOLL/geoipupdade.sh
-#zlib
-
 cd $DIREXEHDAUSMCOLL
 
 wget https://github.com/maxmind/geoipupdate/releases/download/v2.2.1/geoipupdate-2.2.1.tar.gz
@@ -157,8 +109,10 @@ LicenseKey 000000000000
 # * 533 - GeoLite Legacy City
 ProductIds GeoLite2-City GeoLite2-Country 506 517 533" > /usr/local/etc/GeoIP.conf
 
-mkdir /usr/local/share/GeoIP
+mkdir -p /usr/local/share/GeoIP
 
+# Baixando as bases de dados para a geolocalização #
+echo "Baixando as bases de dados para geolocalização..."
 geoipupdate
 
 RETORNO="$?"
@@ -169,7 +123,14 @@ elif [ "$RETORNO" -eq 0 ]; then
 fi
 
 echo "Configurando o agendador de tarefas para atualização automática das bases de dados para geolocalização..."
-(crontab -l; echo "$CRONTABGEOIP") | crontab -
+
+> /etc/cron.daily/geoipupdate
+
+chmod +x /etc/cron.daily/geoipupdate
+
+echo "#!/bin/bash
+
+geoipupdate" > /etc/cron.daily/geoipupdate
 
 RETORNO="$?"
 if [ "$RETORNO" -ne 0 ]; then
@@ -178,8 +139,6 @@ elif [ "$RETORNO" -eq 0 ]; then
     echo "Configuração realizada com sucesso."
 fi
 
-#PYPARSING
-#apt-get install python-pyparsing
 easy_install pyparsing
 RETORNO="$?"
 if [ "$RETORNO" -ne 0 ]; then
@@ -191,13 +150,11 @@ fi
 apt-get install openjdk-7-jdk
 JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
 export JAVA_HOME
-# passar para /etc/enviroment
 
-#if [ -z "${JAVA_HOME}" ]
-#then
-#  echo "JAVA_HOME not set"
-#  exit 0
-#fi
+if [ -z "${JAVA_HOME}" ]
+then
+  echo 'JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"' >> /etc/environment
+fi
 ####################################################
 
 echo "Parabéns, processo de instalação concluído. Caso alguma mensagem de erro tenha sido gerada, corrija o erro. Indicamos fortemente a leitura da documentação no item de Instalação Manual."
