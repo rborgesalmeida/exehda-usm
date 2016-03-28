@@ -1,4 +1,4 @@
-# EXEHDA-USM Manager
+## EXEHDA-USM Manager
 
 O Manager foi concebido no intuito de centralizar a visualização da Ciência de Situação sobre a segurança do ambiente ubíquo como um todo. Assim como o SmartLogger, por ser baseado no EXEHDAbase, ele poderá empregar estratégias de distribuição dos serviços, fornecendo escalabilidade. Esta característica também poderá ser explorada pelos aspectos arquiteturais, onde por exemplo, caso ocorra uma sobrecarga do Manager, poderão ser instanciados dois SmartLoggers para divisão da atual carga de responsabilidade exclusiva do Manager, passando os novos SmartLogger's a enviar os eventos e/ou situações já tratados para o Manager.
 
@@ -14,7 +14,7 @@ Os módulos "Compreensão - Nível n" e "Projeção - Nível n" também foram pr
 
 Para suportar o armazenamento de eventos e situações no Manager, e as configurações dos perfis de execução dos demais componentes por meio das templates, foi proposto o ``Repositório Híbrido de Informações Contextuais'', o qual, em sua implementação foi composto de: modelo não-relacional e relacional.
 
-## Pré-requisitos
+### Pré-requisitos
 
 O EXEHDA-USM Manager possui alguns pré-requisitos para seu funcionamento que podem ser instalados automaticamente ou manualmente caso ocorra algum erro na execução do script de instalação. A lista de pré-requisitos é apresentada a seguir:
 
@@ -24,7 +24,7 @@ O EXEHDA-USM Manager possui alguns pré-requisitos para seu funcionamento que po
 * [openjdk-7-jdk](https://packages.debian.org/en/wheezy/openjdk-7-jdk): OpenJDK is a development environment for building applications, applets, and components using the Java programming language. (GNU GPLv2).
 * [esper](http://www.espertech.com/products/index.php) esper is a Complex Event Processing (CEP) written entirely in Java. (GNU GPLv2).
 
-## Instalação Automática
+### Instalação Automática
 Pode-se utilizar o script install.sh. Ele irá baixar as bibliotecas python citadas acima, o openjdk-7-jdk e os SGBD's postgresql e mongodb. Observação: este script de instalação está homologado apenas para o Debian Jessie (8).
 
  1. Instalar o git e criar um clone deste repositório:	
@@ -43,7 +43,7 @@ Pode-se utilizar o script install.sh. Ele irá baixar as bibliotecas python cita
  
 	`user@hostname:~/Downloads/exehda-usm/manager/$: ./install.sh`
 
-## Instalação Manual
+### Instalação Manual
 Em caso de erros no script de instalação, considerar a instalação manual dos pré-requisitos que falharam. Certificar-se de que o passo 1 da instalação automática foi executado.
 
 1. Instalar o python, postgresql e requisitos para as demais bibliotecas:
