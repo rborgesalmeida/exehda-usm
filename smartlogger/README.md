@@ -5,7 +5,7 @@ O SmartLogger foi projetado para receber eventos de diferentes Collector's e/ou 
 A figura abaixo apresenta uma abstração do componente de software proposto e desenvolvido para o EXEHDA-USM SmartLogger.
 
 <p align="center">
-  <img src="https://github.com/rborgesalmeida/exehda-usm/raw/prototipo-dissertacao/smartlogger/exehda-usm-smartlogger.png" width="350"/>
+  <img src="https://github.com/rborgesalmeida/exehda-usm/raw/prototipo-dissertacao/smartlogger/exehda-usm-smartlogger.png" width="450"/>
 </p>
 
 ### Pré-requisitos
