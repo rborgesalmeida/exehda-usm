@@ -45,17 +45,17 @@ Em caso de erros no script de instalação, considerar a instalação manual dos
 	
 1. Instalar mongodb:
 
-```
-user@hostname:~$: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-user@hostname:~$: echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-user@hostname:~$: sudo apt-get update
-user@hostname:~$: sudo apt-get install -y mongodb-org=3.2.4 mongodb-org-server=3.2.4 mongodb-org-shell=3.2.4 mongodb-org-mongos=3.2.4 mongodb-org-tools=3.2.4
-user@hostname:~$: sudo service mongod start
-```
+	```
+	user@hostname:~$: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+	user@hostname:~$: echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+	user@hostname:~$: sudo apt-get update
+	user@hostname:~$: sudo apt-get install -y mongodb-org=3.2.4 mongodb-org-server=3.2.4 mongodb-org-shell=3.2.4 mongodb-org-mongos=3.2.4 mongodb-org-tools=3.2.4
+	user@hostname:~$: sudo service mongod start
+	```
 
 1. Criar o usuário e a base de dados não-relacional para os eventos e situações da EXEHDA-USM. Substituir $EXEHDAUSMDBN e $EXEHDAUSMUSER pelo nome do usuário e senha para a base não-relacional. Não esquecer de alterar as configurações no arquivo exehda-usm-smartlogger.conf: 
 
-`user@hostname:~$: sudo mongo --eval "db.getSiblingDB('$EXEHDAUSMDBN').createUser({user: '$EXEHDAUSMUSER', pwd: '$EXEHDAUSMDBNP', roles: ['readWrite', 'dbAdmin']})"`
+	`user@hostname:~$: sudo mongo --eval "db.getSiblingDB('$EXEHDAUSMDBN').createUser({user: '$EXEHDAUSMUSER', pwd: '$EXEHDAUSMDBNP', roles: ['readWrite', 'dbAdmin']})"`
 
 	
 1. Instalar as bibliotecas manualmente: 
@@ -67,7 +67,7 @@ user@hostname:~$: sudo service mongod start
 	```
 	user@hostname:~$: sudo echo 'JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"' >> /etc/environment
 	user@hostname:~$: JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
-  user@hostname:~$: export JAVA_HOME
+  	user@hostname:~$: export JAVA_HOME
 	```
 
 1. Copiar os os arquivos do EXEHDA-USM SmartLogger para o diretório desejado e criar o diretório para armazenamento dos logs:
