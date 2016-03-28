@@ -31,7 +31,7 @@ Pode-se utilizar o script install.sh. Ele irá baixar as bibliotecas python cita
  
  	`user@hostname:~$: sudo apt-get install git && cd Downloads && git clone https://github.com/rborgesalmeida/exehda-usm.git`
 
- 1. Acessar o diretório onde estão os arquivos de instalação do EXEHDA-USM Collector:
+ 1. Acessar o diretório onde estão os arquivos de instalação do EXEHDA-USM Manager:
  
  	`user@hostname:~/Downloads/$: cd exehda-usm/manager/`
 
@@ -52,29 +52,29 @@ Em caso de erros no script de instalação, considerar a instalação manual dos
 	
 1. Instalar mongodb:
 
-```
-user@hostname:~$: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-user@hostname:~$: echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-user@hostname:~$: sudo apt-get update
-user@hostname:~$: sudo apt-get install -y mongodb-org=3.2.4 mongodb-org-server=3.2.4 mongodb-org-shell=3.2.4 mongodb-org-mongos=3.2.4 mongodb-org-tools=3.2.4
-user@hostname:~$: sudo service mongod start
-```
+	```
+	user@hostname:~$: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+	user@hostname:~$: echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+	user@hostname:~$: sudo apt-get update
+	user@hostname:~$: sudo apt-get install -y mongodb-org=3.2.4 mongodb-org-server=3.2.4 mongodb-org-shell=3.2.4 mongodb-org-mongos=3.2.4 mongodb-org-tools=3.2.4
+	user@hostname:~$: sudo service mongod start
+	```
 
 1. Configurar a senha para o usuário postgres:
 
-`user@hostname:~$: sudo -u postgres psql postgres `
+	`user@hostname:~$: sudo -u postgres psql postgres `
 
 1. Criar o usuário e a base de dados relacional para a EXEHDA-USM. Substituir $EXEHDAUSMUSER e $EXEHDAUSMDBR pelo nome do usuário e senha para a base relacional. Não esquecer de alterar as configurações no arquivo exehda-usm-manager.conf:
 
-```
-user@hostname:~$: sudo -u postgres createuser -D -A -P $EXEHDAUSMUSER
-user@hostname:~$: sudo -u postgres createdb -O $EXEHDAUSMUSER $EXEHDAUSMDBR
-user@hostname:~$: sudo psql -U $EXEHDAUSMUSER -h 127.0.0.1 $EXEHDAUSMDBR < exehdausmdbr.sql
-```
+	```
+	user@hostname:~$: sudo -u postgres createuser -D -A -P $EXEHDAUSMUSER
+	user@hostname:~$: sudo -u postgres createdb -O $EXEHDAUSMUSER $EXEHDAUSMDBR
+	user@hostname:~$: sudo psql -U $EXEHDAUSMUSER -h 127.0.0.1 $EXEHDAUSMDBR < exehdausmdbr.sql
+	```
 
 1. Criar o usuário e a base de dados não-relacional para os eventos e situações da EXEHDA-USM. Substituir $EXEHDAUSMDBN e $EXEHDAUSMUSER pelo nome do usuário e senha para a base não-relacional. Não esquecer de alterar as configurações no arquivo exehda-usm-manager.conf: 
 
-`user@hostname:~$: sudo mongo --eval "db.getSiblingDB('$EXEHDAUSMDBN').createUser({user: '$EXEHDAUSMUSER', pwd: '$EXEHDAUSMDBNP', roles: ['readWrite', 'dbAdmin']})"`
+	`user@hostname:~$: sudo mongo --eval "db.getSiblingDB('$EXEHDAUSMDBN').createUser({user: '$EXEHDAUSMUSER', pwd: '$EXEHDAUSMDBNP', roles: ['readWrite', 'dbAdmin']})"`
 
 	
 1. Instalar as bibliotecas manualmente: 
@@ -86,7 +86,7 @@ user@hostname:~$: sudo psql -U $EXEHDAUSMUSER -h 127.0.0.1 $EXEHDAUSMDBR < exehd
 	```
 	user@hostname:~$: sudo echo 'JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"' >> /etc/environment
 	user@hostname:~$: JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
-  user@hostname:~$: export JAVA_HOME
+  	user@hostname:~$: export JAVA_HOME
 	```
 
 1. Copiar os os arquivos do EXEHDA-USM Manager para o diretório desejado e criar o diretório para armazenamento dos logs:
