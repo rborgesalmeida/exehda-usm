@@ -21,11 +21,11 @@ A abordagem EXEHDA-USM visa o fornecimento de Consciência de Situação sobre o
 
 * Mestrando: 
  * Ricardo Borges Almeida (Universidade Federal de Pelotas)
-   * [Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4464670A9)
-   * E-mail: rbalmeida@inf.ufpel.edu.br
+    * [Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4464670A9)
+    * E-mail: rbalmeida@inf.ufpel.edu.br
 * Orientador(a): 
- * Ana Marilza Pernas (Universidade Federal de Pelotas)
-   * [Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4732420Y8)
+  * Ana Marilza Pernas (Universidade Federal de Pelotas)
+    * [Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4732420Y8)
 * Coorientadores: 
   * Adenauer Correa Yamin (Universidade Federal de Pelotas) 
     * [Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4707199E9) 
@@ -33,7 +33,7 @@ A abordagem EXEHDA-USM visa o fornecimento de Consciência de Situação sobre o
     * [LinkedIn](https://www.linkedin.com/in/lucasdonato?authType=NAME_SEARCH&authToken=-vKW&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A19709630%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1458004528285%2Ctas%3ALucas%20Donato)
   
 * O desenvolvimento deste protótipo foi baseado nos projetos de graduação listados abaixo, sendo parte do código desenvolvida em colaboração com Roger da Silva Machado ([Currículo Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K8780207P5)). Para maiores detalhes, acessar:
-  * MACHADO, R. S.[LogA-DM: uma abordagem de análise dinâmica de log com base em mineração de dados] (MACHADO, R. S.)(http://inf.ufpel.edu.br/nopcc/lib/exe/fetch.php?media=monografias:2013:2013-mono-roger_machado.pdf). Pelotas, RS: Universidade Federal de Pelotas, 2013.
+  * MACHADO, R. S. [LogA-DM: uma abordagem de análise dinâmica de log com base em mineração de dados](http://inf.ufpel.edu.br/nopcc/lib/exe/fetch.php?media=monografias:2013:2013-mono-roger_machado.pdf). Pelotas, RS: Universidade Federal de Pelotas, 2013.
   * ALMEIDA, R. B. [Segurança da Informação e Gerenciamento de Eventos: Uma Abordagem Explorando Consciência de Situação](http://inf.ufpel.edu.br/nopcc/lib/exe/fetch.php?media=monografias:2013:2013-mono-ricardo_almeida.pdf). Pelotas, RS: Universidade Federal de Pelotas, 2013.
 
 ## Licença
