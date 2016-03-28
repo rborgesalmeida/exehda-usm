@@ -41,7 +41,7 @@ Pode-se utilizar o script install.sh. Ele irá baixar as bibliotecas python cita
 	`user@hostname:~/Downloads/exehda-usm/collector/$: ./install.sh`
 
 ## Instalação Manual
-Em caso de erros no script de instalação, considerar a instalação manual dos pré-requisitos que falharam.
+Em caso de erros no script de instalação, considerar a instalação manual dos pré-requisitos que falharam. Certificar-se de que o passo 1 da instalação automática foi executado.
 
 1. Instalar o python e requisitos para as demais bibliotecas:
 
@@ -91,7 +91,7 @@ Em caso de erros no script de instalação, considerar a instalação manual dos
   user@hostname:~$: export JAVA_HOME
 	```
 
-1. Copiar os os arquivos do EXEHDA-USM Collector para o diretório desejado:
+1. Copiar os os arquivos do EXEHDA-USM Collector para o diretório desejado e criar o diretório para armazenamento dos logs:
 
- 	`root@hostname:~#: mkdir -p /etc/exehda-usm/collector && cp -a /home/user/Downloads/exehda-usm/collector/ /etc/exehda-usm/collector/`
+ 	`root@hostname:~#: mkdir -p /etc/exehda-usm/collector && mkdir -p /var/log/exehda-usm/ && cp -a /home/user/Downloads/exehda-usm/collector/ /etc/exehda-usm/collector/`
 
